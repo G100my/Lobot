@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@line/bot-sdk": "^10.6.0",
+    "@netlify/blobs": "^10.7.0",
     "@netlify/functions": "^5.1.2",
     "openai": "^6.25.0"
   },
