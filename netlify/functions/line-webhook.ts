@@ -1,4 +1,4 @@
-import type { Context } from '@netlify/functions'
+import type { Config, Context } from '@netlify/functions'
 import { messagingApi, validateSignature } from '@line/bot-sdk'
 import type { MessageEvent, TextEventMessage, WebhookEvent, WebhookRequestBody } from '@line/bot-sdk'
 import { resolveLineReplyText } from './line-webhook/handle-line-inbound-message'
@@ -8,6 +8,12 @@ import { logErrorWithContext, type ThrownError } from './shared/error-logging'
 import { jsonResponse } from './shared/http-response'
 
 type TextMessageEvent = MessageEvent & { message: TextEventMessage }
+
+// https://docs.netlify.com/build/functions/get-started/?data-tab=TypeScript#route-requests
+export const config: Config = {
+  path: '/api/line/webhook',
+  method: 'POST',
+}
 
 const isTextMessageEvent = (event: WebhookEvent): event is TextMessageEvent =>
   event.type === 'message' && event.message.type === 'text'
