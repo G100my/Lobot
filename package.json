@@ -2,17 +2,27 @@
   "scripts": {
     "dev": "netlify dev",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test:translation:live": "node scripts/test-translation-live.mjs",
+    "test:translation:live:vitest": "vitest run tests/translation-openai-live.test.ts"
   },
   "dependencies": {
     "@line/bot-sdk": "^10.6.0",
     "@netlify/blobs": "^10.7.0",
     "@netlify/functions": "^5.1.2",
-    "openai": "^6.25.0"
+    "openai": "^6.25.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/node": "^25.3.3",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 120
   }
 }

@@ -20,6 +20,9 @@ importers:
       openai:
         specifier: ^6.25.0
         version: 6.25.0(ws@8.18.3)(zod@4.3.6)
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
     devDependencies:
       '@types/node':
         specifier: ^25.3.3
@@ -1719,5 +1722,4 @@ snapshots:
   yaml@2.8.2:
     optional: true
 
-  zod@4.3.6:
-    optional: true
+  zod@4.3.6: {}
